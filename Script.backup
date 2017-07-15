@@ -1,0 +1,161 @@
+-- Sequence: public.cliente_id_seq
+
+-- DROP SEQUENCE public.cliente_id_seq;
+
+CREATE SEQUENCE public.cliente_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.cliente_id_seq
+  OWNER TO postgres;
+
+  -- Sequence: public.ordem_servico_id_seq
+
+-- DROP SEQUENCE public.ordem_servico_id_seq;
+
+CREATE SEQUENCE public.ordem_servico_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.ordem_servico_id_seq
+  OWNER TO postgres;
+
+  -- Sequence: public.peca_id_seq
+
+-- DROP SEQUENCE public.peca_id_seq;
+
+CREATE SEQUENCE public.peca_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.peca_id_seq
+  OWNER TO postgres;
+
+  -- Sequence: public.usuario_id_seq
+
+-- DROP SEQUENCE public.usuario_id_seq;
+
+CREATE SEQUENCE public.usuario_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 2
+  CACHE 1;
+ALTER TABLE public.usuario_id_seq
+  OWNER TO postgres;
+
+  -- Sequence: public.veiculo_id_seq
+
+-- DROP SEQUENCE public.veiculo_id_seq;
+
+CREATE SEQUENCE public.veiculo_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.veiculo_id_seq
+  OWNER TO postgres;
+
+  -- Table: public.cliente
+
+-- DROP TABLE public.cliente;
+
+CREATE TABLE public.cliente
+(
+  id integer NOT NULL DEFAULT nextval('cliente_id_seq'::regclass),
+  nome text,
+  telefone text,
+  cpf text,
+  endereco text,
+  email text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.cliente
+  OWNER TO postgres;
+
+  -- Table: public.ordem_servico
+
+-- DROP TABLE public.ordem_servico;
+
+CREATE TABLE public.ordem_servico
+(
+  id integer NOT NULL DEFAULT nextval('ordem_servico_id_seq'::regclass),
+  id_veiculo integer,
+  data_orcamento date,
+  data_servico date,
+  servico text,
+  valor real,
+  status text,
+  id_peca integer,
+  quantidade integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.ordem_servico
+  OWNER TO postgres;
+
+  -- Table: public.peca
+
+-- DROP TABLE public.peca;
+
+CREATE TABLE public.peca
+(
+  id integer NOT NULL DEFAULT nextval('peca_id_seq'::regclass),
+  quantidade integer,
+  marca text,
+  fornecedor text,
+  nome text,
+  tipo text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.peca
+  OWNER TO postgres;
+
+  -- Table: public.usuario
+
+-- DROP TABLE public.usuario;
+
+CREATE TABLE public.usuario
+(
+  id integer NOT NULL DEFAULT nextval('usuario_id_seq'::regclass),
+  usuario text,
+  senha text,
+  papel text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.usuario
+  OWNER TO postgres;
+  -- Table: public.veiculo
+
+-- DROP TABLE public.veiculo;
+
+CREATE TABLE public.veiculo
+(
+  id integer NOT NULL DEFAULT nextval('veiculo_id_seq'::regclass),
+  placa text,
+  modelo text,
+  marca text,
+  ano_fabricacao date,
+  ano_modelo date,
+  id_cliente integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.veiculo
+  OWNER TO postgres;
+

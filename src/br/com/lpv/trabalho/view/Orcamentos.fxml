@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="546.0" stylesheets="@../../view/css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.lpv.trabalho.controle.OrcamentoController">
+   <children>
+      <TableView fx:id="tabela" prefHeight="204.0" prefWidth="546.0">
+        <columns>
+          <TableColumn fx:id="columnOS" prefWidth="66.0" text="Numero OS" />
+            <TableColumn fx:id="columnData" prefWidth="100.0" resizable="false" text="Data/Orcamento" />
+            <TableColumn fx:id="columnPeca" minWidth="-1.0" prefWidth="87.0" text="Peça" />
+            <TableColumn fx:id="columnQtd" prefWidth="108.0" text="Quantidade" />
+          <TableColumn fx:id="columnValor" minWidth="-1.0" prefWidth="40.0" text="Valor" />
+            <TableColumn fx:id="columnStatus" minWidth="-1.0" prefWidth="90.0" resizable="false" text="Status" />
+        </columns>
+         <styleClass>
+            <String fx:value="vfcRecovered" />
+            <String fx:value="planAssigned" />
+            <String fx:value="defaultTableStyle" />
+         </styleClass>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <GridPane fx:id="gridPane" layoutX="23.0" layoutY="222.0" prefHeight="204.0" prefWidth="331.0" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="81.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="199.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="servico" prefHeight="25.0" prefWidth="199.0" styleClass="text_field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="valor" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" styleClass="text_field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="quantidade" maxWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" styleClass="text_field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label styleClass="msg_info" text="Serviço" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Courier New" size="17.0" />
+               </font>
+            </Label>
+            <Label styleClass="msg_info" text="Valor" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Courier New" size="17.0" />
+               </font>
+            </Label>
+            <Label styleClass="msg_info" text="Quantidade" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Courier New" size="17.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="pecas" minHeight="-Infinity" prefHeight="25.0" prefWidth="198.0" styleClass="button_cli" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label styleClass="msg_info" text="Peça" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Courier New" size="17.0" />
+               </font>
+            </Label>
+            <Label styleClass="msg_info" text="Veículo">
+               <font>
+                  <Font name="Courier New" size="17.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="veiculos" minHeight="-Infinity" prefHeight="25.0" prefWidth="198.0" styleClass="button_cli" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnCadastrar" layoutX="292.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleCadastrar" text="Cadastrar" visible="false" />
+      <Pagination fx:id="pagination" disable="true" layoutX="434.0" layoutY="204.0" maxPageIndicatorCount="0" pageCount="2" prefHeight="45.0" prefWidth="90.0" />
+      <Button fx:id="btnAprovar" layoutX="23.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleAprovar" style="-fx-cursor: hand;" text="Aprovar" visible="false" />
+      <Button fx:id="btnConcluir" disable="true" layoutX="27.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleConcluir" style="-fx-cursor: hand;" text="Concluir" visible="false" />
+   </children>
+</AnchorPane>
